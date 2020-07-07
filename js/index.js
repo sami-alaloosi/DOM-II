@@ -53,6 +53,7 @@ const blueFont = (e) => (e.target.style.color = "skyBlue");
 const logoHeading = document.querySelector("h1");
 logoHeading.addEventListener("mousemove", bigRed);
 
+
 // 4 mouseleave
 
 logoHeading.addEventListener("mouseleave", blueFont);
@@ -112,3 +113,11 @@ function zoom(event) {
 // 10 wheel
 
 yellowBus.addEventListener("wheel", zoom);
+
+
+ // gsap
+gsap.from(logoHeading , {duration: 2, y: '-90%', ease: 'bounce'});
+gsap.from(yellowBus , {duration: 3, opacity: 0, scale: 0.3 , ease: 'back'});
+
+
+
