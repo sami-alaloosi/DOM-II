@@ -84,12 +84,31 @@ window.addEventListener(
 
 // 8 keydown
 
-document.addEventListener('keydown',function (e) {
+document.addEventListener("keydown", function (e) {
   if (e.key === "+") {
-    allPTags.forEach((data) => data.style.fontSize = "5rem")
-  } else if (e.key === "-"){
-    allPTags.forEach((data) => data.style.fontSize = "1rem")
+    allPTags.forEach((data) => (data.style.fontSize = "5rem"));
+  } else if (e.key === "-") {
+    allPTags.forEach((data) => (data.style.fontSize = "1rem"));
   }
-} )
+});
 
-//
+// 9 keyup
+
+document.addEventListener("keyup", (e) => {
+  if (e.key === "=") {
+    allPTags.forEach((data) => (data.style.fontSize = "2rem"));
+  }
+});
+
+// wheel fuction
+let scale = 1;
+function zoom(event) {
+  event.preventDefault();
+  scale += event.deltaY * -0.01;
+  scale = Math.min(Math.max(0.125, scale), 4);
+  yellowBus.style.transform = `scale(${scale})`;
+}
+
+// 10 wheel
+
+yellowBus.addEventListener("wheel", zoom);
